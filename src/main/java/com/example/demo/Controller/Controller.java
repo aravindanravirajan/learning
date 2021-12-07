@@ -39,5 +39,4 @@ public class Controller {
     public List<Student> sets(@RequestBody List<Student> studenttable){
     	return service.setdetails(studenttable);
     }
-		
-	}
+		}

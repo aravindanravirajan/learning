@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -20,8 +21,10 @@ public class Student {
 	private Integer studentId;
 	private String name;
 	private Date dateOfBirth;
-	@ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
-	@JsonManagedReference
+	//@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
+	//@JsonBackReference
+	@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
+	@JsonBackReference
 	private List<Course> course;
 	public Student() {
 		super();
