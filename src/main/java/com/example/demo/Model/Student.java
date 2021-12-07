@@ -23,7 +23,7 @@ public class Student {
 	private Date dateOfBirth;
 	//@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
 	//@JsonBackReference
-	@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
+	@ManyToMany(targetEntity = Course.class, mappedBy = "studentTable", cascade = CascadeType.ALL)
 	@JsonBackReference
 	private List<Course> course;
 	public Student() {

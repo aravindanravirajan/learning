@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "course")
@@ -20,8 +21,10 @@ public class Course {
 	private String id;
 	private String courseName;
 	private Integer studentId;
-	@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
-	@JsonBackReference
+	//@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
+	//@JsonBackReference
+	@ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private List<Student> studentTable;
 	public Course() {
 		super();
