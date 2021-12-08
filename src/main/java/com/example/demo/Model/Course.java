@@ -21,10 +21,9 @@ public class Course {
 	private String id;
 	private String courseName;
 	private Integer studentId;
-	//@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
-	//@JsonBackReference
-	@ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@ManyToMany(targetEntity = Student.class, mappedBy = "course", cascade = CascadeType.ALL)
+	@JsonBackReference
+	
 	private List<Student> studentTable;
 	public Course() {
 		super();
